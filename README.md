@@ -1,12 +1,10 @@
 # Weather App
 
-A small Vue 3 + Vite weather application — a starter project to fetch and display weather information.
+A small Vue 3 + Vite weather application to fetch and display weather information.
 
 **Features**
 - Weather for 5 days (including today) by using the coordinates given.
 - App uses `openweathermap` data. Refer following link: `https://openweathermap.org/forecast5` 
-- Responsive, component-based UI
-- Uses Vite for fast dev experience
 
 **Requirements**
 - Node.js 14+ (Node 18+ recommended)
@@ -36,6 +34,10 @@ VITE_WEATHER_API_KEY=your_api_key_here
 ```
 
 Access environment variables in code via `import.meta.env.VITE_WEATHER_API_KEY`.
+
+Future Improvements
+- Accessing given city's cordinates using `https://openweathermap.org/api/geocoding-api` endpoint.
+- Add air quality component using `https://openweathermap.org/api/air-pollution` endpoint
 
 Contributing
 - Feel free to open issues or submit PRs with improvements.
