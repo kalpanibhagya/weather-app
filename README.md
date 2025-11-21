@@ -1,44 +1,45 @@
-# weather-app
+# Weather App
 
-This template should help get you started developing with Vue 3 in Vite.
+A small Vue 3 + Vite weather application — a starter project to fetch and display weather information.
 
-## Recommended IDE Setup
+**Features**
+- Weather for 5 days (including today) by using the coordinates given.
+- App uses `openweathermap` data. Refer following link: `https://openweathermap.org/forecast5` 
+- Responsive, component-based UI
+- Uses Vite for fast dev experience
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**Requirements**
+- Node.js 14+ (Node 18+ recommended)
+- npm (or yarn)
 
-## Recommended Browser Setup
+**Quick Start**
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Install dependencies:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```powershell
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Run the dev server:
 
-```sh
+```powershell
 npm run dev
 ```
 
-### Compile and Minify for Production
+Open http://localhost:5173 in your browser (Vite default).
 
-```sh
-npm run build
+Environment / API keys
+- App needs `openweathermap` API key, create a `.env` file in the project root and add keys prefixed with `VITE_`, for example:
+
+```text
+VITE_WEATHER_API_KEY=your_api_key_here
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Access environment variables in code via `import.meta.env.VITE_WEATHER_API_KEY`.
 
-```sh
-npm run lint
-```
+Contributing
+- Feel free to open issues or submit PRs with improvements.
+
+License & Credits
+- Based on the Vue + Vite starter template.
+
