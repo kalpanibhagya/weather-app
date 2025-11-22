@@ -3,8 +3,7 @@
     <h1>Weather Forecast</h1>
 
     <div>
-      <input v-model="lat" placeholder="Latitude" />
-      <input v-model="lon" placeholder="Longitude" />
+      <input v-model="city" placeholder="City,State,Country" />
       <button @click="getForecast">Get Forecast</button>
     </div>
     <div v-if="loading">Loading...</div>
@@ -20,7 +19,7 @@
         <div class="time">{{ item.dt_txt.split(' ')[1].slice(0, 5) }}</div>
 
         <div class="temp">
-          {{ (item.main.temp - 273.15).toFixed(1) }}°C
+          {{ Math.round(item.main.temp - 273.15) }}°C
         </div>
 
         <div class="desc">
@@ -45,7 +44,7 @@
       <br></br>
       <ul>
         <li v-for="(item, index) in forecast" :key="index">
-          {{ item.dt_txt }} - Temp: {{ (item.main.temp - 273.15).toFixed(1) }}°C - {{ item.weather[0].description }}
+          {{ item.dt_txt }} - Temp: {{ Math.round(item.main.temp - 273.15) }}°C - {{ item.weather[0].description }}
         </li>
       </ul>
     </div>
@@ -66,7 +65,8 @@ export default {
       loading: false,
       error: "",
       apiKey: apiKey,
-      dailyData: {}
+      dailyData: {},
+      city: ""
     };
   },
 
@@ -82,13 +82,35 @@ export default {
 
   methods: {
     async getForecast() {
-      if (!this.lat || !this.lon) {
-        this.error = "Please enter latitude and longitude";
-        return;
-      }
-
       this.loading = true;
       this.error = "";
+      if(this.city.length == 0){
+        this.error = "Please enter a city with the format City,State,Country. If state is not applicable, use City,Country fprmat.";
+        this.loading = false;
+        return;
+      }
+      const cityParts = this.city.split(',');
+      const cityName = cityParts[0].trim();
+      const stateCode = cityParts.length == 3 ? cityParts[1].trim() : '';
+      const countryCode = cityParts.length == 3 ? cityParts[2].trim() : cityParts[1].trim();
+      const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}${stateCode ? ',' + stateCode : ''},${countryCode}&limit=1&appid=${this.apiKey}`;
+      try {
+        const geoRes = await fetch(geoUrl);
+        if (!geoRes.ok) throw new Error("Invalid Geocoding API response");
+
+        const geoData = await geoRes.json();
+        if(geoData.length == 0){
+          this.error = "Location not found. Please check the city, state, country format.";
+          this.loading = false;
+          return;
+        }
+        this.lat = geoData[0].lat;
+        this.lon = geoData[0].lon;
+      } catch (err) {
+        this.error = "Error fetching geocoding data: " + err.message;
+        this.loading = false;
+        return;
+      }
 
       const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}`;
 
@@ -118,13 +140,7 @@ export default {
       });
       return grouped;
     },
-  },
-
-  watch: {
-    activeTab() {
-      this.$nextTick(() => this.safeDrawChart());
-    }
-  },
+  }
 };
 </script>
 
