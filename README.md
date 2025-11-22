@@ -13,7 +13,7 @@ A simple weather application to fetch and display real time weather information 
   - https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key} - to get the current weather at any given coordinate
 
 ## Requirements
-- Node.js 14+ (Node 18+ recommended)
+- Node.js
 - npm (or yarn)
 
 ## Quick Start
