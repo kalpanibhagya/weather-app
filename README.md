@@ -2,17 +2,17 @@
 
 A small Vue 3 + Vite weather application to fetch and display weather information.
 
-### Features
+## Features
 - Weather forecast for 5 days for a given city.
 - App uses `openweathermap` data to get the geo coordinates and the weather data by using following endpoints:
   - http://api.openweathermap.org/geo/1.0/direct?q={city},{state},{country}&limit={limit}&appid={API_key}
   - http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API_key}
 
-### Requirements
+## Requirements
 - Node.js 14+ (Node 18+ recommended)
 - npm (or yarn)
 
-### Quick Start
+## Quick Start
 
 **Install dependencies:**
 
@@ -37,8 +37,9 @@ VITE_WEATHER_API_KEY=your_api_key_here
 
 - Access environment variables in code via `import.meta.env.VITE_WEATHER_API_KEY`.
 
-### Future Improvements
-- Better UX/UI
+## Future Improvements
+- Better UX/UI and responsivness
+- Add possibility to change between °F/°C
 - Improve the weather forcast for 5 days UI.
 
 Other APIs that we can utilize
@@ -46,9 +47,9 @@ Other APIs that we can utilize
 - https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
 
-### Contributing
+## Contributing
 - Feel free to open issues or submit PRs with improvements.
 
-### License & Credits
+## License & Credits
 - This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 - Weather data and forecasts provided by OpenWeatherMap — https://openweathermap.org/
