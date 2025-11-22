@@ -35,9 +35,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div v-else-if="loading">Loading weather...</div>
-  <div v-else-if="error" style="color:red">{{ error }}</div> -->
 </template>
 
 
