@@ -31,5 +31,5 @@ a,
 
 .icon {
   width: 100px;
-  filter: brightness(0) invert(1) sepia(1) saturate(500%) hue-rotate(200deg);
+  /* filter: brightness(0) invert(1) sepia(1) saturate(500%) hue-rotate(200deg); */
 }

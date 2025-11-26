@@ -11,7 +11,9 @@ A simple weather application to fetch and display real time weather information 
   - http://api.openweathermap.org/geo/1.0/direct?q={city},{state},{country}&limit={limit}&appid={API_key} - for geo coordinates
   - http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API_key} - for weather forecast for 5 days (per 3 hours)
   - https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key} - to get the current weather at any given coordinate
-
+- For icons:
+  - https://openweathermap.org/weather-conditions
+  
 ## Requirements
 - Node.js
 - npm (or yarn)

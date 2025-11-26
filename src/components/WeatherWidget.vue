@@ -109,7 +109,7 @@ export default {
 <style scoped>
 .widget {
   /* width: 500px; */
-  background: linear-gradient(to bottom right, #75a1db, #557fbb);
+  background: linear-gradient(to bottom right, #c0c3c8, #4A90E2);
   color: white;
   padding: 40px;
   border-radius: 20px;
